@@ -1,3 +1,0 @@
-SUBDIRS = src
-dist_doc_DATA = README
-pmerge_CXXFLAGS = $(OPENMP_CFLAGS)
