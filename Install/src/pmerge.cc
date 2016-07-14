@@ -97,8 +97,8 @@ int main (int argc, char* argv[]) {
 	<< "Minimum stack depth: " << min_stack_depth << "\n"
 	<< "Log liklihood filtering: " << (filter_lnl == true ? "on"  : "off") << "; threshold: " << lnl_limit << "\n"
 	<< "Minor allele frequency cutoff: " << minor_allele_freq << "\n"
-        << "Maximum observed heterozygosity cutoff: " << max_obs_het << "\n";
-    
+        << "Maximum observed heterozygosity cutoff: " << max_obs_het << "\n"
+        << "minimum percentage of similarity between loci to cluster: " << cluster_similarity << "\n";
 
     //
     // Set the number of OpenMP parallel threads to execute.
@@ -121,7 +121,7 @@ int main (int argc, char* argv[]) {
     // Open the log file.
     //
     stringstream log, wl;
-    log << "batch_" << batch_id << ".populations.log";
+    log << "batch_" << batch_id << ".pmerge.log";
     string log_path = in_path + log.str();
     ofstream log_fh(log_path.c_str(), ofstream::out);
     if (log_fh.fail()) {
@@ -889,6 +889,7 @@ int cluster_filter(map<int, CSLocus *> &catalog,
         cerr << "Error opening WL file '" << wl_path << "'\n";
 	exit(1);
     }
+   cerr << "Clustering loci for paralog filtering" << "\n";
     for (it = catalog.begin(); it != catalog.end(); it++) {
         loc = it->second;
         if (loc->snps.size() != 0) {
@@ -909,6 +910,7 @@ int cluster_filter(map<int, CSLocus *> &catalog,
       #pragma omp for  schedule(dynamic) 
         
 	for (int i = 0; i < keys.size(); i++) {
+             if (i % 100 == 0) cerr << "Calculationg distances for loci# " << i << "       \r";
             tag_1 = tags[keys[i]];
             int d;
             for (int j = i; j < keys.size(); j++) {
@@ -959,7 +961,6 @@ size =  merged[k].size();
 	   }  
 }
 
-cerr << " Writing Whitelisted loci" << "\n";
 for (merged_it = merged.begin(); merged_it != merged.end(); merged_it++)
 {   
 
