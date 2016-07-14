@@ -1298,7 +1298,7 @@ void version() {
 
 void help() {
     std::cerr << "pmerge " << VERSION << "\n"
-              << "populations -b batch_id -P path -M path [-r min] [-m min][-C cluster][-t threads]" << "\n"
+              << "pmerge -b batch_id -P path -M path [-r min] [-m min][-C cluster][-t threads]" << "\n"
 	      << "  b: Batch ID to examine when exporting from the catalog.\n"
 	      << "  P: path to the Stacks output files.\n"
 	      << "  M: path to the population map, a tab separated file describing which individuals belong in which population.\n"
