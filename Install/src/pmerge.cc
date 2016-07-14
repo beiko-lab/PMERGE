@@ -98,7 +98,7 @@ int main (int argc, char* argv[]) {
 	<< "Log liklihood filtering: " << (filter_lnl == true ? "on"  : "off") << "; threshold: " << lnl_limit << "\n"
 	<< "Minor allele frequency cutoff: " << minor_allele_freq << "\n"
         << "Maximum observed heterozygosity cutoff: " << max_obs_het << "\n"
-        << "minimum percentage of similarity between loci to cluster: " << cluster_similarity << "\n";
+        << "Minimum percentage of similarity between loci to cluster: " << cluster_similarity << "\n";
 
     //
     // Set the number of OpenMP parallel threads to execute.
