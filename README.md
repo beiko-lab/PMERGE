@@ -2,7 +2,8 @@
 
 **PMERGE**, is a software,  which implements a new method that identifies candidate PSVs by building networks of loci that share high levels of nucleotide similarity. The PMERGE is embedded  in the analysis pipeline of the widely used Stacks software,  and it is straightforward to apply it as an additional filter in population-genomic studies using RAD-seq data.
 
-
+![PMERGE workflow]
+(https://github.com/beiko-lab/PMERGE/blob/master/pmerge_flow%20(1).png)
 
 
  The PMERGE software  is run after cstacks and before populations to generate a “whitelist” of loci from the catalog based on population-level filtering conditions and our new paralog-detection method. The populations program then uses only the whitelisted loci to generate population-genetic statistics. Apart from the paralog filter, PMERGE includes the following filters that are also used by the populations program: percent samples limit per population (r), which requires that a locus be present in at least the specified percentage of individuals in a population; locus population limit (p), the minimum number of populations in which a locus must be present; minor allele frequency cutoff (a), which sets a minimum threshold for the frequency of the minor allele (the second-most-frequent allele at a given locus); maximum observed heterozygozity (q); and minimum stack depth (m) at a given locus.
