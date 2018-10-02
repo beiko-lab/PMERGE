@@ -37,7 +37,7 @@
 const uint num_tags_fields    = 14;
 const uint num_snps_fields    = 10;
 const uint num_alleles_fields =  6;
-const uint num_matches_fields =  8;
+const uint num_matches_fields =  9;
 
 template <class LocusT>
 int 
@@ -451,7 +451,7 @@ int load_catalog_matches(string sample,  vector<CatMatch *> &matches) {
 
 	parse_tsv(line, parts);
 
-        if (parts.size() != num_matches_fields) {
+         if ( (parts.size() != num_matches_fields) && (parts.size() != num_matches_fields-1)) {
             cerr << "Error parsing " << f.c_str() << " at line: " << line_num << ". (" << parts.size() << " fields).\n";
             return 0;
         }
