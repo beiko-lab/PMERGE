@@ -1,6 +1,6 @@
 # PMERGE 
 
-(Compatible with Stacks 1.42)
+(Compatible till Stacks 1.48)
 
 **PMERGE**, is a software,  which implements a new method that identifies candidate PSVs by building networks of loci that share high levels of nucleotide similarity. The PMERGE is embedded  in the analysis pipeline of the widely used Stacks software,  and it is straightforward to apply it as an additional filter in population-genomic studies using RAD-seq data.
 
